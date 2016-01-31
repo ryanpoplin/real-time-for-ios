@@ -8,6 +8,9 @@ var app = express()
 // this is used for getting data out of the body of a request
 var bodyParser = require("body-parser")
 
+// get that real-time
+var io = require("socket.io")
+
 // set our application port
 var port = process.env.PORT || 8080
 
@@ -42,3 +45,6 @@ app.use("/api", router)
 app.listen(port)
 // this is to view the instance starting via terminal
 console.log("api is running and is accessible from port " + port)
+
+// 
+io.listen(app)

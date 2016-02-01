@@ -27,10 +27,14 @@ var serv = http.createServer(app)
 var io = require("socket.io").listen(serv)
 
 io.sockets.on("connection", function(socket) {
-	socket.on("messageChange", function(data) {
-		console.log(data)
-		socket.emit("receive", data.message.split('').reverse().join(''))
-	})
+
+	console.log(socket)
+
+	// socket.on("input", function(data) {
+	// 	console.log(data)
+	// 	socket.emit("receive", data.message.split('').reverse().join(''))
+	// })
+
 })
 
 // // create an express router to handle our api's url based control flow
